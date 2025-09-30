@@ -9,6 +9,7 @@ on:
 jobs:
 # Job 1
   lint-and-test:
+    name: Check code and test
     runs-on: ubuntu-latest
 
     steps:
@@ -53,8 +54,9 @@ jobs:
 
 # Job 2
   terraform: 
-    name: Terraform apply
+    name: Terraform Apply
     runs-on: ubuntu-latest
+    needs: lint-and-test
         
     env:
           AWS_REGION: eu-central-1 
@@ -87,8 +89,9 @@ jobs:
     
 # Job 3
   deploy:
+    name: Deploy EC2
     runs-on: ubuntu-latest
-    needs: lint-and-test
+    needs: terraform
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
