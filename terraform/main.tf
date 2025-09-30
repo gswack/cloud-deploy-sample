@@ -65,8 +65,8 @@ resource "aws_security_group" "web_sg" {
 
 # EC2 Instance
 resource "aws_key_pair" "deployer" {
-  key_name   = "github-actions-key"
-  public_key = file("${path.module}/github-actions-key.pem")
+  key_name   = var.key_name
+  public_key  = file("${path.module}/ec2-github.pub")
 }
 
 resource "aws_instance" "cloud-deploy" {
@@ -74,7 +74,7 @@ resource "aws_instance" "cloud-deploy" {
   instance_type          = var.instance_type
   subnet_id              = aws_subnet.public.id
   vpc_security_group_ids = [aws_security_group.web_sg.id]
-  key_name               = var.key_name
+  key_name               = aws_key_pair.deployer.key_name
 
   associate_public_ip_address = true
 
