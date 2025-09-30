@@ -64,7 +64,12 @@ resource "aws_security_group" "web_sg" {
 }
 
 # EC2 Instance
-resource "aws_instance" "web" {
+resource "aws_key_pair" "deployer" {
+  key_name   = "github-actions-key"
+  public_key = file("${path.module}/github-actions-key.pem")
+}
+
+resource "aws_instance" "cloud-deploy" {
   ami                    = var.ami_id
   instance_type          = var.instance_type
   subnet_id              = aws_subnet.public.id

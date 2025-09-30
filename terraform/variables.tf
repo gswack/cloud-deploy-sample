@@ -9,6 +9,8 @@ variable "instance_type" {
 variable "key_name" {
   description = "SSH key pair name"
   type        = string
+  key_name    = "github-actions-key"
+  public_key  = file("${path.module}/ec2-github.pub")
 }
 
 variable "ami_id" {

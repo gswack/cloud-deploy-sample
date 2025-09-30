@@ -8,3 +8,5 @@ coverage.xml
 cloudformation/template.yaml
 .github/workflows/ci.yaml
 git_commands.sh
+gswack_accessKeys.csv
+ec2-github
