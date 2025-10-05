@@ -1,6 +1,6 @@
-# Test Automation Framework
+# Cloud Deploy Sample
 !codecov
-![CI](https://github.com/gswack/test-automation-framework/actions/workflows/ciomation framework...
+![CI](https://github.com/gswack/cloud-deploy-sample/actions/workflows/ciomation framework...
 
 ## Overview
 A Python-based web application demonstrating scalable development and modern DevOps practices. It leverages Docker for infrastructure-as-code and GitHub Actions for automated CI/CD pipelines.
@@ -28,8 +28,8 @@ Before running the application, make sure you have the following installed:
 ## Setup Instructions 
 ```bash
 # Clone the repo
-git clone https://github.com/gswack/test-automation-framework.git
-cd test-automation-framework
+git clone https://github.com/gswack/cloud-deploy-sample.git
+cd cloud-deploy-sample
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt 
@@ -43,16 +43,16 @@ pytest --cov=app --cov-report=xml --cov-report=term
 python main.py
 
 # Build Docker image
-docker build -t gswack/test-automation-framework .
+docker build -t gswack/cloud-deploy-sample .
 
 # Run container locally
-docker run -p 5000:5000 gswack/test-automation-framework
+docker run -p 5000:5000 gswack/cloud-deploy-sample
 ```
 
 ## Project Structure
 cloud-deploy-sample/
 ├── app/                      # Simple web app (Flask or static site)
-├── terraform/                # Terraform scripts
+├── terraform/                
 │   ├── main.tf
 │   ├── variables.tf
 │   └── outputs.tf
@@ -77,4 +77,3 @@ Contributions are welcome and appreciated! If you'd like to improve this project
 - Submit a pull request
 
 Please ensure your code follows the existing style and passes all tests before submitting.
-# cloud-deploy-sample
